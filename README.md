@@ -106,9 +106,9 @@ To run this project, you'll need to have the following installed:
 
    ```JS
    NEXT_PUBLIC_BASE_API_URL = <NEXT_PUBLIC_BASE_API_URL> 
-   E.g. NEXT_PUBLIC_BASE_API_URL = http://localhost:3001/api/
-   
+  
    ```
+  E.g. NEXT_PUBLIC_BASE_API_URL = http://localhost:3001/api/
 
 4. Start the server :
    ```sh
