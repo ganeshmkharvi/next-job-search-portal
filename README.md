@@ -1,34 +1,116 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <h3 align="center">Job Search Portal</h3>
+  <p align="center">
+    <a href="https://github.com/ganeshmkharvi/next-job-search-portal//issues">Report Bug </a>
+    ·
+    <a href="https://github.com/ganeshmkharvi/next-job-search-portal//issues"> Request Feature</a>
+  </p>
+</p>
 
-## Getting Started
+<!-- ABOUT THE PROJECT -->
 
-First, run the development server:
+### What's inside this repo?
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+#### Task description
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Created a little part of a website which is designated to help people with their job searching strategies. 
+The website will offer three services: 
+- Resume Writing 
+- Career Coaching 
+- Linkedin profile update
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Each of these services will be available in one of three tiers: 
+- Basic 
+- Professional 
+- Executive 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+A client can choose to purchase one of the tiers for a desired service. After that, they get redirected to the checkout form, where they can fill in their details and make a payment. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### Technical details
+In future, most of the parameters of each service will be customizable by website admin. So the following parameters should be stored in the database and loaded from the backend API: 
+- Each service name, url (slug) and description. 
+- Name and price of each tier. 
+- Description of what’s included in the tier. 
 
-## Learn More
+We will use this template as the homepage: 
+https://getbootstrap.com/docs/4.5/examples/jumbotron/ 
+- Instead of each “Heading” column, display the services - so, the column names from left to right should correspond to three services. 
+- Each service should have its name, slug and description (you can stick to any dummy text) loaded from the API. 
 
-To learn more about Next.js, take a look at the following resources:
+Clicking on the “View details” button, the user will get to the service page. Please use this template for it: 
+https://getbootstrap.com/docs/4.5/examples/pricing/
+- Instead of the “Pricing” header, display the service name. 
+- Instead of the text under the “Pricing” header, display the service description.
+- Display three tiers similarly to the template. For tier descriptions, also use dummy texts.
+- Service name and description, tier prices and descriptions should be loaded from the API, according to the currently open service page. 
+- A button for every tier should say “Buy now” and lead the user to the checkout page. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+We will use this template as checkout page: 
+https://getbootstrap.com/docs/4.5/examples/checkout/ 
+- The “your cart” section should display one item, showing correct service name, tier name and price. You can remove the “promo code” field. 
+- Please reduce the number of fields in the form, to have only the following ones, validated as described: 
+      - First name and Last name (Both required)
+      - Email (Required and in correct format) 
+      - Address (Required)
+      - Country, State, Zip (Required)
+      - Payment: keep only “Paypal” option and remove card details fields. 
+- Once the user pushes the “Continue to checkout” button, given the form is valid, you just save all the user details in the database. You can display message about a success or an error as an alert with corresponding color and text: https://getbootstrap.com/docs/4.5/components/alerts/ 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+We will end up having the following frontend pages: 
+- Homepage: /
+- Resume Writing: /services/resume-writing
+- Career Coaching: /services/career-coaching
+- Linkedin profile update: /services/linkedin-profile-update
+- Checkout: /checkout
 
-## Deploy on Vercel
+Requirements 
+The app should have a Nextjs based frontend and Node.js based backend (REST API). Please use Express.js for the backend framework. For data storage, please use MongoDB.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### API Source
+- Api git url: https://github.com/ganeshmkharvi/node-express-mongodb-job-search-api-server
+- GET / POST services api url- http://localhost:3001/api/services 
+- POST checkout api url - http://localhost:3001/api/checkout
+- Replace 3001 with the appropriate port number you used in your project.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Built With
+
+- [Next]() - React Framework
+- [Bootstrap]() - CSS Framework
+
+
+### Prerequisites
+
+To run this project, you'll need to have the following installed:
+
+- Node.js : [https://nodejs.org](https://nodejs.org)
+
+- npm :
+  ```sh
+  npm install npm@latest -g
+  ```
+- job-search-api-server repo:  https://github.com/ganeshmkharvi/node-express-mongodb-job-search-api-server.git is cloned and running on your machine.
+
+### Installation
+
+1. Clone the repo :
+   ```sh
+   git clone https://github.com/ganeshmkharvi/next-job-search-portal.git
+   ```
+2. Install dependencies (use `sudo` if required) :
+
+   ```sh
+   npm install
+   ```
+
+3. Create `.env` file and configure :
+
+   ```JS
+   NEXT_PUBLIC_BASE_API_URL = <NEXT_PUBLIC_BASE_API_URL> 
+   E.g. NEXT_PUBLIC_BASE_API_URL = http://localhost:3001/api/
+   
+   ```
+
+4. Start the server :
+   ```sh
+   npm run dev
+   ```
