@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Col, Row, Form, Button } from "react-bootstrap";
 import { Constants } from "@utility/constants";
 import Link from 'next/link';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import Head from "next/head";
 
 const Checkout = () => {
     const [validated, setValidated] = useState(false);
@@ -68,7 +69,7 @@ const Checkout = () => {
             setIsSuccess(false);
             setIsFetched(true);
         }),
-            (            err: string) => {
+            (err: string) => {
                 setIsSuccess(false);
                 console.log('error is ' + err);
                 scrollToTop();
@@ -98,7 +99,9 @@ const Checkout = () => {
         }
     }
 
-    return (
+    return (<><Head>
+        <title>Checkout</title>
+    </Head>
         <div className="container">
             <div className="py-5 text-center">
                 <h2>Checkout form</h2>
@@ -268,6 +271,7 @@ const Checkout = () => {
                 </Form>
             </div>
         </div>
+    </>
     );
 }
 
