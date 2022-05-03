@@ -70,7 +70,7 @@ The app should have a Nextjs based frontend and Node.js based backend (REST API)
 - Api git url: https://github.com/ganeshmkharvi/node-express-mongodb-job-search-api-server
 - GET / POST services api url- http://localhost:3001/api/services 
 - POST checkout api url - http://localhost:3001/api/checkout
-- Replace 3001 with the appropriate port number you used in your project.
+- Replace 3001 with the appropriate port number you have used in your project.
 
 ### Built With
 
